@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+
+<launch>
+	
+	<!-- ARGs -->
+	<arg name="joy" default="false"/>
+	
+	<!-- passing URDF file -->
+	<param command="$(find xacro)/xacro $(find tortoisebotpromax_description)/urdf/tortoisebotpromax.xacro" name="robot_description"/>
+
+	<!-- Robot Joint State -->
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+
+	<!--<include file="$(find ydlidar_ros)/launch/X4.launch" />	
+ 	<remap from="/scan" to="/scan_360" />-->
+
+	<!-- Lidar Launch File -->
+	<include file="$(find ydlidar_ros)/launch/S2.launch" />	
+
+	<!-- Joy ROS Node -->
+	<group if="$(arg joy)">
+	<include file="$(find tortoisebotpromax_firmware)/launch/joy_control.launch" />
+	</group>
+
+	<!-- ROS Serial Node -->
+	<node name="serial_node" pkg="rosserial_python"      type="serial_node.py" output="screen">
+    <param name="port" type="string" value="/dev/ttyACM0"/>
+    <param name="baud" type="int" value="57600"/>
+	</node>
+
+
+
+</launch>

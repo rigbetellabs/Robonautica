@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<robot name="tortoisebot" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="body_color" value="Gazebo/FlatBlack " />
+<xacro:property name="wheel_color" value="Gazebo/Black" />
+<xacro:property name="lidar_base_color" value="Gazebo/DarkGrey " />
+<xacro:property name="lidar_top_color" value="Gazebo/Black" />
+<xacro:property name="caster_color" value="Gazebo/Grey " />
+<xacro:property name="realsense" value="Gazebo/Road " />
+
+
+
+
+
+
+<gazebo reference="base_link">
+  <material>${body_color}</material>
+</gazebo>
+
+<gazebo reference="right_wheel_1">
+  <material>${wheel_color}</material>
+</gazebo>
+
+<gazebo reference="left_wheel_1">
+  <material>${wheel_color}</material>
+</gazebo>
+
+<gazebo reference="back_castor_1">
+  <material>${body_color}</material>
+</gazebo>
+
+<gazebo reference="front_castor_1">
+  <material>${body_color}</material>
+</gazebo>
+
+<gazebo reference="realsense_1">
+  <material>${realsense}</material>
+</gazebo>
+
+<gazebo reference="lidar_1">
+  <material>${lidar_top_color}</material>
+</gazebo>
+
+<gazebo reference="imu_1">
+  <material>${body_color}</material>
+</gazebo>
+
+<gazebo reference="lidar_base_1">
+  <material>${lidar_base_color}</material>
+</gazebo>
+
+
+</robot>
