@@ -7,6 +7,19 @@
 <xacro:include filename="$(find tortoisebotpromax_description)/gazebo/tortoisebotpromax_plugins.gazebo" />
 <xacro:include filename="$(find tortoisebotpromax_description)/gazebo/tortoisebotpromax_materials.gazebo" />
 <xacro:include filename="$(find tortoisebotpromax_description)/gazebo/tortoisebotpromax_physics.gazebo" />
+
+<!-- <xacro:include filename="$(find realsense_ros_gazebo)/xacro/depthcam.xacro"/> -->
+<xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
+
+
+<!-- <xacro:realsense_d435 sensor_name="ttbpromax" parent_link="realsense_1" rate="10">
+  
+  <origin xyz="0.011753067204287801 -0.0004295385558066378 -0.035091351352319555" rpy="0 0 0"/>
+</xacro:realsense_d435> -->
+
+
+
+
 <link name="base_link">
   <inertial>
     <origin xyz="0.0018704786286109873 -0.0007237102827802932 0.09559881095083998" rpy="0 0 0"/>
@@ -27,9 +40,13 @@
     </geometry>
   </collision>
 </link>
+<xacro:sensor_d435 name="camera" topics_ns="camera" parent="realsense_1" publish_pointcloud="true">
+  <origin xyz="0.011753067204287801 -0.0004295385558066378 -0.035091351352319555" rpy="0 0 0"/>
+</xacro:sensor_d435>
 
 <link name="realsense_1">
-  <inertial>
+   
+  <!-- <inertial>
     <origin xyz="0.011753067204287801 -0.0004295385558066378 -0.035091351352319555" rpy="0 0 0"/>
     <mass value="0.34623874488058043"/>
     <inertia ixx="0.000224" iyy="3.1e-05" izz="0.000226" ixy="-1e-06" iyz="-0.0" ixz="-0.0"/>
@@ -46,7 +63,7 @@
     <geometry>
       <mesh filename="package://tortoisebotpromax_description/meshes/realsense_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-  </collision>
+  </collision> -->
 </link>
 
 <link name="right_wheel_1">

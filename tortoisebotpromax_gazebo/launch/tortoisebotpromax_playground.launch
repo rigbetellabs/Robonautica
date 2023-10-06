@@ -4,7 +4,7 @@
 
 	<arg name="x_pos" default="0.0"/>
 	<arg name="y_pos" default="0.0"/>
-	<arg name="z_pos" default="0.005"/>
+	<arg name="z_pos" default="0.05"/>
 
 	<param command="$(find xacro)/xacro $(find tortoisebotpromax_description)/urdf/tortoisebotpromax.xacro" name="robot_description"/>
 
@@ -15,7 +15,7 @@
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
-		<arg name="world_name" value="$(find tortoisebotpromax_gazebo)/worlds/small_house.world"/>  
+		<arg name="world_name" value="$(find tortoisebotpromax_gazebo)/worlds/house_env.world"/>  
 		<arg name="paused" value="false"/>
 		<arg name="use_sim_time" value="true"/>
 		<arg name="gui" value="true"/>
@@ -23,6 +23,6 @@
 		<arg name="debug" value="false"/>
 	</include>
 
-	<include file="$(find tortoisebotpromax_gazebo)/launch/tortoisebotpromax_laser.launch"/>
+	<!-- <include file="$(find tortoisebotpromax_gazebo)/launch/tortoisebotpromax_laser.launch"/> -->
 
 </launch>
