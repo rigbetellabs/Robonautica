@@ -3,6 +3,9 @@ IISC Robotics Hackathon on TortoiseBot Pro Max
 
 ## Dependencies
 ```
+git clone https://github.com/nilseuropa/realsense_ros_gazebo.git
+```
+```
 git clone https://github.com/issaiass/realsense2_description.git
 ```
 ```
