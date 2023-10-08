@@ -18,7 +18,7 @@ To ensure your workspace is properly set up, check for the ROS_PACKAGE_PATH usin
 ```
 echo $ROS_PACKAGE_PATH
 ```
-> /home/<username>/catkin_ws/src:/opt/ros/indigo/share:/opt/ros/indigo/stacks
+> /home/<username>/catkin_ws/src:/opt/ros/noetic/share:/opt/ros/noetic/stacks
 ### Cloning the current repository
 All the executables and folders are to be placed in src/ and catkin_make every time you modify the src/ folder.
 Hence, navigate to the src/ folder and clone the required repositories & dependencies as follows:
