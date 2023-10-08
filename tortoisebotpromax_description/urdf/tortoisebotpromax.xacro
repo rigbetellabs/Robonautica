@@ -2,23 +2,16 @@
 <robot name="tortoisebotpromax" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <xacro:include filename="$(find tortoisebotpromax_description)/urdf/materials.xacro" />
-
-
 <xacro:include filename="$(find tortoisebotpromax_description)/gazebo/tortoisebotpromax_plugins.gazebo" />
 <xacro:include filename="$(find tortoisebotpromax_description)/gazebo/tortoisebotpromax_materials.gazebo" />
 <xacro:include filename="$(find tortoisebotpromax_description)/gazebo/tortoisebotpromax_physics.gazebo" />
 
-<!-- <xacro:include filename="$(find realsense_ros_gazebo)/xacro/depthcam.xacro"/> -->
+<!-- Realsense xacro -->
 <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
 
-
-<!-- <xacro:realsense_d435 sensor_name="ttbpromax" parent_link="realsense_1" rate="10">
-  
-  <origin xyz="0.011753067204287801 -0.0004295385558066378 -0.035091351352319555" rpy="0 0 0"/>
-</xacro:realsense_d435> -->
-
-
-
+<material name="silver">
+  <color rgba="0.700 0.700 0.700 1.000"/>
+</material>
 
 <link name="base_link">
   <inertial>
@@ -40,6 +33,8 @@
     </geometry>
   </collision>
 </link>
+
+<!-- Realsense Plugin  -->
 <xacro:sensor_d435 name="camera" topics_ns="camera" parent="realsense_1" publish_pointcloud="true">
   <origin xyz="0.011753067204287801 -0.0004295385558066378 -0.035091351352319555" rpy="0 0 0"/>
 </xacro:sensor_d435>

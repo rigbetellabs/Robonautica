@@ -15,13 +15,12 @@
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
-		<arg name="world_name" value="$(find tortoisebotpromax_gazebo)/worlds/house_env_02.world"/>  
+		<arg name="world_name" value="$(find tortoisebotpromax_gazebo)/worlds/traffic_iisc_env.world"/>  
 		<arg name="paused" value="false"/>
 		<arg name="use_sim_time" value="true"/>
 		<arg name="gui" value="true"/>
 		<arg name="headless" value="false"/>
 		<arg name="debug" value="false"/>
 	</include>
-
-
+	
 </launch>
