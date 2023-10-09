@@ -4,11 +4,9 @@
 	
 	<!-- ARGs -->
 	<arg name="joy" default="false"/>
-        <arg name="model" default="$(find tortoisebotpromax_description)/urdf/tortoisebotpromax.xacro"/>
-
-        <param name="robot_description" textfile="$(arg model)" />	
+	
 	<!-- passing URDF file -->
-        <!--<param command="$(find xacro)/xacro $(find tortoisebotpromax_description)/urdf/tortoisebotpromax.xacro" name="robot_description"/>-->
+	<param command="$(find xacro)/xacro $(find tortoisebotpromax_description)/urdf/tortoisebotpromax.xacro" name="robot_description"/>
 
 	<!-- Robot Joint State -->
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
