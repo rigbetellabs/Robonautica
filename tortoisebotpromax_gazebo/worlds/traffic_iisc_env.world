@@ -68,55 +68,7 @@
       <elevation>0</elevation>
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
-    <state world_name='default'>
-      <sim_time>1059 894000000</sim_time>
-      <real_time>9 999761996</real_time>
-      <wall_time>1696784508 115383915</wall_time>
-      <iterations>6312</iterations>
-      <model name='ground_plane'>
-        <pose>0 0 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose>0 0 0 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='iisc_traffic_final'>
-        <pose>3.97232 1.60915 0.45 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link_0'>
-          <pose>3.97232 1.60915 0.45 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 -9.8 0 -0 0</acceleration>
-          <wrench>0 0 -9.8 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='rbl_logo_main'>
-        <pose>3.91913 1.56969 0.456512 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link_4'>
-          <pose>3.91913 1.56969 0.456512 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <light name='user_directional_light_0'>
-        <pose>-4.75853 -16.2682 1 0 -0.77 0</pose>
-      </light>
-      <light name='user_directional_light_0_clone'>
-        <pose>-6.52381 -14.6863 1 0.77 -0 0</pose>
-      </light>
-      <light name='user_directional_light_0_clone_clone'>
-        <pose>-7.87692 -16.5525 1 0 0.776507 0</pose>
-      </light>
-      <light name='user_directional_light_0_clone_clone_clone'>
-        <pose>-6.85367 -17.9401 1.29474 -0.77 0 0</pose>
-      </light>
-    </state>
-    <model name='iisc_traffic_final'>
+    <model name='traffic_env_02'>
       <link name='link_0'>
         <inertial>
           <mass>1</mass>
@@ -130,7 +82,7 @@
           </inertia>
           <pose>0 0 0 0 -0 0</pose>
         </inertial>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 -0 0 0 -0 0</pose>
         <gravity>1</gravity>
         <self_collide>0</self_collide>
         <kinematic>1</kinematic>
@@ -139,7 +91,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://traffic_iisc/logos_IISC.dae</uri>
+              <uri>model://traffic_iisc/IISC_traffic_Env.dae</uri>
               <scale>5 5 5</scale>
             </mesh>
           </geometry>
@@ -162,15 +114,15 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://traffic_iisc/logos_IISC.dae</uri>
+              <uri>model://traffic_iisc/IISC_traffic_Env.dae</uri>
               <scale>5 5 5</scale>
             </mesh>
           </geometry>
           <surface>
             <friction>
               <ode>
-                <mu>100</mu>
-                <mu2>50</mu2>
+                <mu>1000</mu>
+                <mu2>1000</mu2>
                 <fdir1>0 0 0</fdir1>
                 <slip1>0</slip1>
                 <slip2>0</slip2>
@@ -215,10 +167,10 @@
       </link>
       <static>0</static>
       <allow_auto_disable>1</allow_auto_disable>
-      <pose>3.97232 1.60915 0.45 0 -0 0</pose>
+      <pose>3.43268 1.7326 0 0 -0 0</pose>
     </model>
     <light name='user_directional_light_0' type='directional'>
-      <pose>-4.75853 -17.6529 1 0 -0 0</pose>
+      <pose>-25.6553 -24.5889 1 0 -0 0</pose>
       <diffuse>0.5 0.5 0.5 1</diffuse>
       <specular>0.1 0.1 0.1 1</specular>
       <direction>0.1 0.1 -0.9</direction>
@@ -229,16 +181,11 @@
         <quadratic>0.001</quadratic>
       </attenuation>
       <cast_shadows>1</cast_shadows>
-      <spot>
-        <inner_angle>0</inner_angle>
-        <outer_angle>0</outer_angle>
-        <falloff>0</falloff>
-      </spot>
     </light>
     <light name='user_directional_light_0_clone' type='directional'>
-      <pose>-6.52381 -14.6863 1 0 -0 0</pose>
-      <diffuse>0.5 0.5 0.5 1</diffuse>
-      <specular>0.1 0.1 0.1 1</specular>
+      <pose>-2.4124 -8.42313 1 0 -0 0</pose>
+      <diffuse>0.498039 0.498039 0.498039 1</diffuse>
+      <specular>0.0980392 0.0980392 0.0980392 1</specular>
       <direction>0.109764 0.109764 -0.987878</direction>
       <attenuation>
         <range>20</range>
@@ -247,16 +194,11 @@
         <quadratic>0.001</quadratic>
       </attenuation>
       <cast_shadows>1</cast_shadows>
-      <spot>
-        <inner_angle>0</inner_angle>
-        <outer_angle>0</outer_angle>
-        <falloff>0</falloff>
-      </spot>
     </light>
-    <light name='user_directional_light_0_clone_clone' type='directional'>
-      <pose>-7.87692 -16.5525 1 0 -0 0</pose>
-      <diffuse>0.5 0.5 0.5 1</diffuse>
-      <specular>0.1 0.1 0.1 1</specular>
+    <light name='user_directional_light_0_clone_1' type='directional'>
+      <pose>-3.45101 -9.15569 1 0 -0 0</pose>
+      <diffuse>0.494118 0.494118 0.494118 1</diffuse>
+      <specular>0.0941176 0.0941176 0.0941176 1</specular>
       <direction>0.109764 0.109764 -0.987878</direction>
       <attenuation>
         <range>20</range>
@@ -265,37 +207,20 @@
         <quadratic>0.001</quadratic>
       </attenuation>
       <cast_shadows>1</cast_shadows>
-      <spot>
-        <inner_angle>0</inner_angle>
-        <outer_angle>0</outer_angle>
-        <falloff>0</falloff>
-      </spot>
     </light>
-    <light name='user_directional_light_0_clone_clone_clone' type='directional'>
-      <pose>-4.51115 -20.7302 1 0 -0 0</pose>
-      <diffuse>0.5 0.5 0.5 1</diffuse>
-      <specular>0.1 0.1 0.1 1</specular>
+    <light name='user_directional_light_0_clone_0' type='directional'>
+      <pose>-1.3054 -9.12138 1 0 -0 0</pose>
+      <diffuse>0.494118 0.494118 0.494118 1</diffuse>
+      <specular>0.0901961 0.0901961 0.0901961 1</specular>
       <direction>0.109764 0.109764 -0.987878</direction>
       <attenuation>
         <range>20</range>
-        <constant>0.5</constant>
+        <constant>0.8</constant>
         <linear>0.01</linear>
         <quadratic>0.001</quadratic>
       </attenuation>
       <cast_shadows>1</cast_shadows>
-      <spot>
-        <inner_angle>0</inner_angle>
-        <outer_angle>0</outer_angle>
-        <falloff>0</falloff>
-      </spot>
     </light>
-    <gui fullscreen='0'>
-      <camera name='user_camera'>
-        <pose>8.748 -2.89958 17.978 0 0.814792 1.44966</pose>
-        <view_controller>orbit</view_controller>
-        <projection_type>perspective</projection_type>
-      </camera>
-    </gui>
     <model name='rbl_logo_main'>
       <link name='link_4'>
         <inertial>
@@ -349,8 +274,8 @@
           <surface>
             <friction>
               <ode>
-                <mu>1</mu>
-                <mu2>1</mu2>
+                <mu>100</mu>
+                <mu2>50</mu2>
                 <fdir1>0 0 0</fdir1>
                 <slip1>0</slip1>
                 <slip2>0</slip2>
@@ -395,7 +320,62 @@
       </link>
       <static>0</static>
       <allow_auto_disable>1</allow_auto_disable>
-      <pose>7.91819 15.7007 0 0 -0 0</pose>
+      <pose>9.16864 15.7227 0 0 -0 0</pose>
     </model>
+    <state world_name='default'>
+      <sim_time>1144 841000000</sim_time>
+      <real_time>1268 892468789</real_time>
+      <wall_time>1696860436 486112386</wall_time>
+      <iterations>1144841</iterations>
+      <model name='ground_plane'>
+        <pose>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='rbl_logo_main'>
+        <pose>4.15123 1.30023 0.632545 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link_4'>
+          <pose>4.15123 1.30023 0.632545 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -9.8 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='traffic_env_02'>
+        <pose>3.97409 1.60387 0.45 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link_0'>
+          <pose>3.97409 1.60387 0.45 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -9.8 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='user_directional_light_0'>
+        <pose>-2.42737 -9.75427 1 -0.717 0 0</pose>
+      </light>
+      <light name='user_directional_light_0_clone'>
+        <pose>-2.4124 -8.42313 1 0.717 -0 0</pose>
+      </light>
+      <light name='user_directional_light_0_clone_0'>
+        <pose>-1.3054 -9.12138 1 0 0.717 0</pose>
+      </light>
+      <light name='user_directional_light_0_clone_1'>
+        <pose>-3.45101 -9.15569 1 0 -0.717 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>7.20502 -8.35642 6.46312 0 0.613795 1.26715</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
   </world>
 </sdf>

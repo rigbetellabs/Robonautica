@@ -21,6 +21,7 @@
 		<arg name="gui" value="true"/>
 		<arg name="headless" value="false"/>
 		<arg name="debug" value="false"/>
+		<arg name="verbose" value="true"/>
 	</include>
 
 	<!-- <include file="$(find tortoisebotpromax_gazebo)/launch/tortoisebotpromax_laser.launch"/> -->

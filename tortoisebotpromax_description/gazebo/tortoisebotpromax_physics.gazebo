@@ -12,13 +12,13 @@
 
 <gazebo reference="right_wheel_1">
   <mu1>100</mu1>
-  <mu2>100</mu2>
+  <mu2>50</mu2>
   <selfCollide>true</selfCollide>
 </gazebo>
 
 <gazebo reference="left_wheel_1">
   <mu1>100</mu1>
-  <mu2>100</mu2>
+  <mu2>50</mu2>
   <selfCollide>true</selfCollide>
 </gazebo>
 
