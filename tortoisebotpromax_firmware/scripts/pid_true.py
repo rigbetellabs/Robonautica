@@ -2,25 +2,48 @@
 
 import rospy
 from std_msgs.msg import Bool
+from std_srvs.srv import Empty, EmptyResponse
 
-def bool_publisher():
-    # Initialize the ROS node
-    rospy.init_node('bool_publisher', anonymous=True)
+class PIDControlNode:
+    def __init__(self):
+        rospy.init_node('pid_control_node')
+        
+        # Read the initial value of the ROS parameter ~pid
+        self.pid_param = rospy.get_param('~pid', False)
+        
+        # Create a publisher for the PID_control topic
+        self.pid_pub = rospy.Publisher('PID_control', Bool, queue_size=10)
+        
+        # Create ROS services
+        self.pid_on_service = rospy.Service('pid_on', Empty, self.pid_on)
+        self.pid_off_service = rospy.Service('pid_off', Empty, self.pid_off)
 
-    # Create a publisher for the boolean topic
-    pub = rospy.Publisher('PID_control', Bool, queue_size=10)
+    def pid_on(self, request):
+        # Service callback to turn PID on
+        self.pid_param = True
+        rospy.set_param('~pid', True)
+        return EmptyResponse()
 
-    # Get the boolean argument from the launch file (default to False)
-    my_bool_value = rospy.get_param('~pid', False)
+    def pid_off(self, request):
+        # Service callback to turn PID off
+        self.pid_param = False
+        rospy.set_param('~pid', False)
+        return EmptyResponse()
 
-    rate = rospy.Rate(1)  # 1 Hz
-    while not rospy.is_shutdown():
-        # Publish the boolean value
-        pub.publish(my_bool_value)
-        rate.sleep()
+    def run(self):
+        rate = rospy.Rate(10)  # 10 Hz
+
+        while not rospy.is_shutdown():
+            # Continuously publish the value of self.pid_param on PID_control topic
+            pid_msg = Bool()
+            pid_msg.data = self.pid_param
+            self.pid_pub.publish(pid_msg)
+            rate.sleep()
 
 if __name__ == '__main__':
     try:
-        bool_publisher()
+        pid_node = PIDControlNode()
+        pid_node.run()
     except rospy.ROSInterruptException:
         pass
+

@@ -41,7 +41,7 @@
   <origin xyz="0.011753067204287801 -0.0004295385558066378 -0.035091351352319555" rpy="0 0 0"/>
 </xacro:sensor_d435> -->
 
-<link name="realsense_1">
+<link name="camera_link">
    
   <inertial>
     <origin xyz="0.011753067204287801 -0.0004295385558066378 -0.035091351352319555" rpy="0 0 0"/>
@@ -213,7 +213,7 @@
 <joint name="realsense_joint" type="fixed">
   <origin xyz="-0.08369 -1.8e-05 0.289948" rpy="0 0 0"/>
   <parent link="base_link"/>
-  <child link="realsense_1"/>
+  <child link="camera_link"/>
 </joint>
 
 <joint name="right_wheel_joint" type="continuous">

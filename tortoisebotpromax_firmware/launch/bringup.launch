@@ -4,8 +4,7 @@
 
     <!-- ARGs -->
     <arg name="joy" default="false"/>
-    <arg name="pid" default="false"/>
-
+    <arg name="pid" default="true"/>
 
     <!-- passing URDF file -->
     <param command="$(find xacro)/xacro $(find tortoisebotpromax_description)/urdf/tortoisebotpromax_real.xacro" name="robot_description"/>
@@ -13,9 +12,6 @@
     <!-- Robot Joint State -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
-
-    <!--<include file="$(find ydlidar_ros)/launch/X4.launch" /> 
-    <remap from="/scan" to="/scan_360" />-->
 
     <!-- Lidar Launch File -->
     <include file="$(find ydlidar_ros)/launch/S2.launch" /> 
@@ -25,7 +21,6 @@
         <include file="$(find tortoisebotpromax_firmware)/launch/joy_control.launch" />
     </group>
 
-
     <!-- ROS Serial Node -->
     <node name="serial_node" pkg="rosserial_python" type="serial_node.py" output="screen">
         <param name="port" type="string" value="/dev/ttyACM0"/>
@@ -34,7 +29,8 @@
 
     <!-- Add the boolean publisher node with the argument -->
     <node name="bool_publisher_node" pkg="tortoisebotpromax_firmware" type="pid_true.py" output="screen">
-        <param name="pid" value="$(arg pid)"/> <!-- Set your desired boolean argument -->
+        <!-- Use the "pid" argument from the launch file -->
+        <param name="pid" value="$(arg pid)"/>
     </node>
 
 </launch>
