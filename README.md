@@ -66,6 +66,46 @@ To list down all rostopics, use
 ```
 rostopic list
 ```
+## Getting the TortoisebotProMax Running
+Here's a quick overview to the launch files that need to be initiated to get the robot running in autonomous/manual mode:
+1. **bringup.launch**: Initiates the neccessary hardware nodes and state publishers on the robot.
+ Launching this script will get you:
+- Teleop control
+- Lidar visualization
+- Wheel odometry
+- Imu data
+- State publishers
+- Internal PID control
+Here's the command line:
+```
+roslaunch tortoisebotpromax_firmware bringup.launch pid:=true
+```
+(Note: You can turn PID off simply by changing the ardument to pid:=false)
+
+2. **server_bringup.launch**: Initiates necessary localization tools for autonomous navigation
+Launching this script will get you:
+- Cartographer Node Initialization
+- Laser based odometry
+Here's the command line:
+```
+roslaunch tortoisebotpromax_firmware server_bringup.launch
+```
+3. **tortoisebotpromax_navigation.launch**: Initiates the autonomous navigation for exploration as well as localization modes
+Launching this script will get you:
+- Cartographer Based Mapping/Localization
+- Move base navigation tools
+Here's the command line:
+```
+roslaunch tortoisebotpromax_navigation tortoisebotpromax_navigation.launch exploration:=true
+```
+Note: 
+- exploration:true enables the robot to move in SLAM mode. It can autonomously navigate in the enviroment while creating the map for the same.
+- exploration:=false mode sets the robot in localization mode. It spawns itself in the map you provide and navigates within the space.
+- When in localization mode, you can provide the map file by:
+```
+roslaunch tortoisebotpromax_navigation tortoisebotpromax_navigation.launch exploration:=false map_file:/"location of your map file"
+```
+
 ## Task
 After launching the above setup, 
 1. Participants need to visualize the lidar point cloud in Rviz. 
