@@ -66,7 +66,7 @@ To list down all rostopics, use
 ```
 rostopic list
 ```
-## Getting the TortoisebotProMax Running
+# Getting the TortoisebotProMax Running
 Here's a quick overview to the launch files that need to be initiated to get the robot running in autonomous/manual mode:
 1. **bringup.launch**: Initiates the neccessary hardware nodes and state publishers on the robot.
  Launching this script will get you:
