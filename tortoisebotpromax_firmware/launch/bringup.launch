@@ -5,6 +5,7 @@
     <!-- ARGs -->
     <arg name="joy" default="false"/>
     <arg name="pid" default="true"/>
+    <arg name="realsense" default="true" />
 
     <!-- passing URDF file -->
     <param command="$(find xacro)/xacro $(find tortoisebotpromax_description)/urdf/tortoisebotpromax_real.xacro" name="robot_description"/>
@@ -26,6 +27,12 @@
         <param name="port" type="string" value="/dev/ttyACM0"/>
         <param name="baud" type="int" value="57600"/>
     </node>
+
+    <group if="$(arg realsense)">
+        <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+            <arg name="filters" value="pointcloud" />
+        </include>
+    </group>
 
     <!-- Add the boolean publisher node with the argument -->
     <node name="bool_publisher_node" pkg="tortoisebotpromax_firmware" type="pid_true.py" output="screen">
